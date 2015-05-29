@@ -1,0 +1,19 @@
+    def pair(self):
+        num=0
+        ans=[self.communityarray[i]+self.handarray[i] for i in range(0,15)]
+        for i in range(0,15):
+            if(ans[i]>=2):
+                num=i
+        if(self.hand[0][1]==self.hand[1][1]):
+            if(self.bhand>self.bcommunity):
+                return ('tpair',num)
+            else:
+                return ('pair',num)
+
+        if((self.bhand&self.bcommunity)>self.bcommunity-(self.bhand&self.bcommunity)):
+            return ('tpair',num)
+        
+        if(self.bhand&self.bcommunity!=0):
+            return ('pair',num)
+        else :
+            return ('no',num)
